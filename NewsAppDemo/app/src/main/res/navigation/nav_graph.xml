@@ -29,6 +29,7 @@
             app:argType="string" />
         <argument
             android:name="share_url"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue='""' />
     </fragment>
 </navigation>

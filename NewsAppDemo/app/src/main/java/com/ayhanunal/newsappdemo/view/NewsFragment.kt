@@ -41,6 +41,9 @@ class NewsFragment : Fragment(R.layout.fragment_news) {
 
     private fun observeLiveData(){
 
+        //Data received from the api is observed here
+        //3 different results can occur, 3 cases are explored below.
+
         viewModel.news.observe(viewLifecycleOwner, Observer { news ->
             news?.let {
                 fragmentBinding?.recyclerViewNews?.visibility = View.VISIBLE

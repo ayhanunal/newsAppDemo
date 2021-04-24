@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //splash screen
         val intent = Intent(this@MainActivity, HomeActivity::class.java)
         startActivity(intent)
         finish()

@@ -21,7 +21,7 @@
             <ImageView
                 android:id="@+id/newsRowImageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="230dp"
                 android:layout_weight="2"
                 android:scaleType="fitXY"
                 android:src="@drawable/app_icon">
@@ -40,6 +40,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:gravity="center|top"
                     android:layout_margin="2dp"
                     android:text="@string/news_title"
                     android:textColor="@color/black"

@@ -41,6 +41,7 @@ class NewsViewModel(application: Application) : BaseViewModel(application) {
     }
 
     private fun showNews(newsList: List<NewsModel>){
+        //The values ​​of the news to be observed in NewsFragment are taken from the api
         news.value = newsList
         newsError.value = false
         newsLoading.value = false
@@ -48,6 +49,7 @@ class NewsViewModel(application: Application) : BaseViewModel(application) {
 
     fun getFromAPI(){
         getDataFromAPI()
+        //Every time this method is called by the related view, the private 'getDataFromAPI' method of this class will have pulled the data from the api.
     }
 
 

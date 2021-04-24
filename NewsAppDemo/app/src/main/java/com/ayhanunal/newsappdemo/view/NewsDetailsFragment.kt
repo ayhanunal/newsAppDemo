@@ -1,14 +1,14 @@
 package com.ayhanunal.newsappdemo.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.text.method.ScrollingMovementMethod
 import android.view.View
-import android.widget.ScrollView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ayhanunal.newsappdemo.R
 import com.ayhanunal.newsappdemo.databinding.FragmentNewsDetailsBinding
-import com.ayhanunal.newsappdemo.viewmodel.NewsDetaisViewModel
 import com.bumptech.glide.Glide
 
 class NewsDetailsFragment : Fragment(R.layout.fragment_news_details) {
@@ -46,6 +46,22 @@ class NewsDetailsFragment : Fragment(R.layout.fragment_news_details) {
         binding.newsDetailsFragmentSummaryText.text = newsSummary
         binding.newsDetailsFragmentDescText.text = Html.fromHtml(newsContent)
         binding.newsDetailsFragmentDescText.movementMethod = ScrollingMovementMethod()
+
+
+        binding.shareNewsFab.setOnClickListener {
+            //Clicking the fab to share the news
+            if (newsShareUrl.isNotEmpty() && !newsShareUrl.equals("")){
+                //The share url of some news from json is empty, so I made a check
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "text/plain" //intent for text based applications
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL")
+                shareIntent.putExtra(Intent.EXTRA_TEXT, newsShareUrl)
+                startActivity(Intent.createChooser(shareIntent, "Share URL"))
+            }else{
+                Toast.makeText(requireContext(), "Share Url is empty !!", Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
 }

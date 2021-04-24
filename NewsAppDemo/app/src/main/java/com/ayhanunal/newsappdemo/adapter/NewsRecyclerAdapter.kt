@@ -36,7 +36,7 @@ class NewsRecyclerAdapter(val newsList: ArrayList<NewsModel> ) :  RecyclerView.A
             Glide.with(holder.view.context).load(curNews.main_image.url).into(imageView)
 
             cardView.setOnClickListener {
-                findNavController().navigate(NewsFragmentDirections.actionNewsFragmentToNewsDetailsFragment(curNews.title, curNews.summary, curNews.content, curNews.main_image.url, curNews.share_url))
+                findNavController().navigate(NewsFragmentDirections.actionNewsFragmentToNewsDetailsFragment(curNews.title, curNews.summary, curNews.content, curNews.main_image.url, curNews.share_url ?: ""))
             }
         }
 

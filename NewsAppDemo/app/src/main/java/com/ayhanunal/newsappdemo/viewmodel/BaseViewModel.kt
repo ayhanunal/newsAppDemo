@@ -12,12 +12,13 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
 
     private val job = Job()
 
+    //I created a job in Coroutine context so that dispatchers do their job and return to main thread again.
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
     override fun onCleared() {
         super.onCleared()
-        job.cancel()
+        job.cancel() //In terms of memory management, we close the job when the process is cleared.
     }
 
 }
